@@ -1,0 +1,161 @@
+/* ---------- Colors and fonts ---------- */
+:root {
+  --bg-top: #0f766e;
+  --bg-bottom: #0b3b3c;
+  --card: #ffffff;
+  --text: #16282a;
+  --muted: #5c7274;
+  --accent: #f4b63f;
+  --button: #0f5f5a;
+  --button-hover: #0b4a46;
+ 
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+}
+ 
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: linear-gradient(160deg, var(--bg-top), var(--bg-bottom));
+}
+ 
+/* ---------- Card ---------- */
+.card {
+  width: 100%;
+  max-width: 640px;
+  padding: 48px 40px 40px;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+ 
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 36px;
+}
+ 
+/* the small line under the title */
+.card-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin: 14px auto 0;
+  background: var(--accent);
+  border-radius: 2px;
+}
+ 
+/* ---------- Quote ---------- */
+.quote {
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ 
+#quote-text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  line-height: 1.5;
+}
+ 
+.author {
+  margin-top: 24px;
+  font-weight: 700;
+  color: var(--muted);
+  text-align: right;
+}
+ 
+/* short fade when a new quote shows up */
+.fade {
+  animation: fadeIn 0.4s ease;
+}
+ 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+ 
+/* ---------- Buttons ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+ 
+.btn {
+  padding: 12px 24px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+ 
+.btn-main {
+  color: #fff;
+  background: var(--button);
+  border: 2px solid var(--button);
+}
+ 
+.btn-main:hover {
+  background: var(--button-hover);
+  border-color: var(--button-hover);
+}
+ 
+.btn-outline {
+  color: var(--button);
+  background: transparent;
+  border: 2px solid #cfdcdb;
+}
+ 
+.btn-outline:hover {
+  border-color: var(--button);
+}
+ 
+.btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+ 
+/* ---------- Small screens ---------- */
+@media (max-width: 520px) {
+  .card {
+    padding: 36px 22px 28px;
+  }
+ 
+  .card-title {
+    font-size: 1.6rem;
+  }
+ 
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .fade {
+    animation: none;
+  }
+}
